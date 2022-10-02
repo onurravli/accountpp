@@ -8,7 +8,7 @@ void write_to_file(string file_path, transaction* t) {
 
 vector<transaction*> read_from_file() {
     vector<transaction*> transactions;
-    io::CSVReader<2> in("docs/accountpp.csv");
+    io::CSVReader<2> in("./accountpp.csv");
     in.read_header(io::ignore_extra_column, "amount", "description");
     double amount;
     string description;
@@ -35,7 +35,7 @@ void run() {
         cout << "Islem Aciklamasi: ";
         cin >> description;
         transaction* t = new transaction(amount, description);
-        write_to_file("docs/accountpp.csv", t);
+        write_to_file("./accountpp.csv", t);
         cout << description << " islemi eklendi." << endl << "------" << endl;
         run();
     } else if (sel == 2) {
