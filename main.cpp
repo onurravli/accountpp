@@ -1,4 +1,5 @@
 #include "transaction.cpp"
+using namespace std;
 
 void write_to_file(string file_path, transaction* t) {
     ofstream write(file_path, std::ios_base::app);
@@ -32,8 +33,9 @@ void run() {
         string description;
         cout << "Islem Tutari: ";
         cin >> amount;
+        cin.ignore();
         cout << "Islem Aciklamasi: ";
-        cin >> description;
+        getline(cin, description);
         transaction* t = new transaction(amount, description);
         write_to_file("accountpp.csv", t);
         cout << description << " islemi eklendi." << endl << "------" << endl;
